@@ -1,0 +1,7 @@
+CREATE VIEW free_ratings AS
+SELECT rating_id,rating_value,comment,park_id
+FROM national_park_ratings
+
+CREATE USER 'Free_User'@'%' IDENTIFIED BY 'password';
+
+GRANT SELECT ON free_ratings To Free_User@'%';
