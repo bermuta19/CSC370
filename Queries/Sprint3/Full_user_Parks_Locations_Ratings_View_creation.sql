@@ -24,10 +24,10 @@ LEFT JOIN
     Users U ON R.user_id = U.User_id; 
 
 -- Grant access to the view
-GRANT SELECT ON Parks_Locations_Ratings_View TO Free_User@'%';
+GRANT SELECT ON Parks_Locations_Ratings_View TO Full_User@'%';
 
 -- Grant access to perform transactions
-GRANT INSERT, UPDATE, DELETE ON Location TO Free_User@'%';
-GRANT INSERT, UPDATE, DELETE ON Parks TO Free_User@'%';
-GRANT INSERT, UPDATE, DELETE ON national_park_ratings TO Free_User@'%';
+GRANT INSERT, UPDATE, DELETE ON Location TO Full_User@'%';
+GRANT INSERT, UPDATE, DELETE ON Parks TO Full_User@'%';
+GRANT INSERT, UPDATE, DELETE ON national_park_ratings TO Full_User@'%';
 
