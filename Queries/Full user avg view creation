@@ -1,0 +1,16 @@
+CREATE VIEW Average_Park_Ratings_View AS
+SELECT 
+    P.park_id,
+    P.Park_name,
+    AVG(R.rating_value) AS average_rating
+FROM 
+    Parks P
+JOIN 
+    national_park_ratings R ON P.park_id = R.park_id
+GROUP BY 
+    P.park_id, P.Park_name;
+
+
+CREATE USER 'Full_User'@'%' IDENTIFIED BY 'password';
+
+GRANT SELECT ON Average_Park_Ratings_View To Full_User@'%';
