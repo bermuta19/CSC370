@@ -1,0 +1,9 @@
+START TRANSACTION;
+SET @park_id_to_delete = 3;
+SET @coordinates_to_delete = (SELECT Location FROM Parks WHERE park_id = @park_id_to_delete);
+  DELETE FROM Location WHERE Coordinates = @coordinates_to_delete;
+  DELETE FROM Weather_stations WHERE coordinates = @coordinates_to_delete;
+  DELETE FROM national_park_ratings WHERE park_id = @park_id_to_delete;
+  DELETE FROM Parks WHERE park_id = @park_id_to_delete;
+  COMMIT;
+  SELECT 'Park and associated data deleted successfully.' AS Result;
